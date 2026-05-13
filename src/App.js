@@ -16,8 +16,13 @@ const App = () => {
   };
 
   return (
-    <div className="flex h-screen w-full text-white font-sans bg-zinc-900 overflow-hidden">
-      <div className="w-[250px] h-full bg-white/10 backdrop-blur-xl border-r border-white/20 flex flex-col p-4 space-y-6 select-none z-10 relative">
+    <div className="flex h-screen w-full text-white font-sans bg-transparent overflow-hidden">
+      {/* Sidebar Glassmorphism - POSITION ABSOLUTE pour être au dessus du webview */}
+      <motion.div
+        initial={{ x: -300 }}
+        animate={{ x: 0 }}
+        className="absolute left-0 top-0 w-[250px] h-full bg-zinc-900/80 backdrop-blur-2xl border-r border-white/10 flex flex-col p-4 space-y-6 select-none z-50"
+      >
         <div className="flex items-center space-x-2 px-2 py-2 mb-4">
           <div className="w-3 h-3 rounded-full bg-red-500" />
           <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -45,20 +50,23 @@ const App = () => {
         <div className="p-2 bg-white/5 rounded-xl text-xs text-white/40 text-center">
           Modern Browser v1.0
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
 
 const NavItem = ({ label }) => (
-  <div className="flex items-center justify-between p-2 rounded-lg cursor-pointer hover:bg-white/10 transition-colors group">
+  <motion.div
+    whileHover={{ x: 5, backgroundColor: "rgba(255,255,255,0.1)" }}
+    className="flex items-center justify-between p-2 rounded-lg cursor-pointer transition-colors group"
+  >
     <div className="flex items-center space-x-3">
       <span className="text-white/60 group-hover:text-white transition-colors text-sm">{label}</span>
     </div>
     <div className="text-white/20">
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
     </div>
-  </div>
+  </motion.div>
 );
 
 const root = createRoot(document.getElementById("root"));
