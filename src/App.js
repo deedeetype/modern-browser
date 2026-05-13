@@ -8,20 +8,18 @@ const App = () => {
   const handleNavigate = (e) => {
     e.preventDefault();
     const targetUrl = url.startsWith('http') ? url : `https://${url}`;
-    const wv = document.getElementById('browser-view');
-    if (wv) {
-      wv.src = targetUrl;
+    if (window.electronAPI) {
+      window.electronAPI.navigate(targetUrl);
     }
     setUrl("");
   };
 
   return (
     <div className="flex h-screen w-full text-white font-sans bg-transparent overflow-hidden">
-      {/* Sidebar Glassmorphism - POSITION ABSOLUTE pour être au dessus du webview */}
       <motion.div
         initial={{ x: -300 }}
         animate={{ x: 0 }}
-        className="absolute left-0 top-0 w-[250px] h-full bg-zinc-900/80 backdrop-blur-2xl border-r border-white/10 flex flex-col p-4 space-y-6 select-none z-50"
+        className="w-[250px] h-full bg-zinc-900/90 backdrop-blur-2xl border-r border-white/10 flex flex-col p-4 space-y-6 select-none relative z-50"
       >
         <div className="flex items-center space-x-2 px-2 py-2 mb-4">
           <div className="w-3 h-3 rounded-full bg-red-500" />

@@ -12,21 +12,11 @@
     <style>
       body { background: transparent !important; margin: 0; overflow: hidden; }
       .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); }
-      #browser-view {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: calc(100vw - 250px);
-        height: 100vh;
-        border: none;
-        z-index: 1;
-      }
     </style>
     <title>Modern Browser</title>
   </head>
   <body class="bg-transparent">
-    <div id="root" class="relative z-10"></div>
-    <webview id="browser-view" src="https://www.google.com"></webview>
+    <div id="root"></div>
     <script type="text/babel" src="./src/App.js"></script>
   </body>
 </html>
