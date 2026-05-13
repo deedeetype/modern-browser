@@ -10,13 +10,14 @@
     <script src="https://unpkg.com/framer-motion/dist/framer-motion.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-      body { background: transparent !important; }
+      body { background: transparent !important; margin: 0; overflow: hidden; }
       .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); }
     </style>
     <title>Modern Browser</title>
   </head>
-  <body class="bg-transparent overflow-hidden">
+  <body class="bg-transparent">
     <div id="root"></div>
+    <webview id="browser-view" src="https://www.google.com" style="position:absolute; right:0; top:0; width:calc(100vw - 250px); height:100vh; border:none;"></webview>
     <script type="text/babel" src="./src/App.js"></script>
   </body>
 </html>
