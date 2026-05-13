@@ -11,12 +11,16 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
       body { background: transparent !important; margin: 0; overflow: hidden; }
-      .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); }
     </style>
     <title>Modern Browser</title>
   </head>
   <body class="bg-transparent">
-    <div id="root"></div>
+    <!-- LE MOTEUR : Positionné en arrière-plan -->
+    <webview id="browser-view" src="https://www.google.com" style="position:fixed; left:250px; top:0; width:calc(100vw - 250px); height:100vh; border:none; z-index:0;"></webview>
+    
+    <!-- L'UI : Positionnée au premier plan -->
+    <div id="root" style="position:relative; z-index:10;"></div>
+    
     <script type="text/babel" src="./src/App.js"></script>
   </body>
 </html>
